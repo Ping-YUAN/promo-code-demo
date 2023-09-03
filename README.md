@@ -7,7 +7,11 @@
 
 ## Start the app
 
-To start the development server run `npm run serve`. Open your browser and navigate to http://localhost:3000/. Happy coding!
+To start the development server run `npm run serve`. 
+If you want to choose another port number, you can rename `.env.template` to `.env` and change the default port number in `.env` file. 
+You should also provide the `WEATHER_API_KEY` so that the server can communicate with weather provider site. 
+
+Then you can open postman to test the api. 
 
 ## Technical
 
