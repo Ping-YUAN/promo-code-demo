@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { PromoValidationService } from './promo-validation.service';
 import {
   PromoCodeVerificationData,
@@ -12,7 +12,7 @@ export class PromoValidationController {
   constructor(
     private readonly promoValidationService: PromoValidationService
   ) {}
-  @Get()
+  @Post()
   verifyPromoCodeWithUserInfo(
     @Body() body: PromoCodeVerificationData
   ): Observable<PromoCodeVerificationResult> {

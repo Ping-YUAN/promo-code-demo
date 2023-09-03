@@ -90,7 +90,7 @@ export class PromoValidationService {
     restrictionItem: any,
     user: PromoVerificationUserInfo
   ): Observable<PromoRestrictionItemVerficationResult> {
-    const key = Object.keys(restrictionItem)[0].toLowerCase();
+    const key = Object.keys(restrictionItem)[0]//?.toLowerCase();
 
     switch (key) {
       case OrOperation: {
@@ -169,7 +169,7 @@ export class PromoValidationService {
     user: PromoVerificationUserInfo,
     key: string
   ): Observable<PromoRestrictionItemVerficationResult> {
-    // working on the different spec promo type
+    // working on the leaf operations
     const userProperty = key.replace('@', '');
     const operations = Object.keys(restrictionItem);
 

@@ -2,7 +2,6 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { Observable, map, of, switchMap } from 'rxjs';
 import { Weather } from './model';
-import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class WeatherService {
