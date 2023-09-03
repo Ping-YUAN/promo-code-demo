@@ -1,0 +1,64 @@
+{
+  "name": "promo-code-demo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/promo-code-demo/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/promo-code-demo",
+        "main": "apps/promo-code-demo/src/main.ts",
+        "tsConfig": "apps/promo-code-demo/tsconfig.app.json",
+        "assets": ["apps/promo-code-demo/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/promo-code-demo/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "promo-code-demo:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "promo-code-demo:build:development"
+        },
+        "production": {
+          "buildTarget": "promo-code-demo:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/promo-code-demo/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/promo-code-demo/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
